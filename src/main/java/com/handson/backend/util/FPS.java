@@ -46,7 +46,7 @@ public class FPS {
             }
         });
         List rows =  qrySelect.getResultList();
-        BigInteger total = (BigInteger) qryCount.getSingleResult();
+        Long total = ((Number) qryCount.getSingleResult()).longValue();
         return PaginationAndList.of(Pagination.of(page, (total.intValue() / count) + 1, total.intValue()) ,rows);
     }
 
